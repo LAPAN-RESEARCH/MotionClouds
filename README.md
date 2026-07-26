@@ -1,5 +1,11 @@
 # MotionClouds
 
+[![PyPI](https://img.shields.io/badge/PyPI-v2.0-3776AB?style=for-the-badge&logo=pypi&logoColor=white)](https://pypi.org/project/MotionClouds)
+[![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
+[![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white)](https://numpy.org)
+[![CITATION.cff](https://img.shields.io/badge/CITATION.cff-cited-blue?style=for-the-badge&logo=github)](CITATION.cff)
+
+
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/NeuralEnsemble/MotionClouds/master)
 [![PyPI version](https://badge.fury.io/py/MotionClouds.svg)](https://badge.fury.io/py/MotionClouds)
@@ -98,3 +104,10 @@ for sf_0 in [0.01, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6]:
     mc.figures_MC(fx, fy, ft, name_, sf_0=sf_0)
 ```
 ***
+
+## 👥 Authors & Contributors
+
+- 👨‍🏫 [Prof. Hugo de Paula](https://github.com/hugodepaula) (Universidade Federal de Minas Gerais / LAPAN)
+- 👨‍🏫 [Laurent Perrinet](https://github.com/laurentperrinet) (CNRS / Aix-Marseille University)
+- 👨‍🏫 [Matthias Hennig](https://github.com/mhennig) (University of Edinburgh)
+- 👨‍🏫 [J. Spezia](https://github.com/jspezia)
