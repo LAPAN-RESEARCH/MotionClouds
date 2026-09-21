@@ -5,8 +5,6 @@
 [![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white)](https://numpy.org)
 [![CITATION.cff](https://img.shields.io/badge/CITATION.cff-cited-blue?style=for-the-badge&logo=github)](CITATION.cff)
 
-
-
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/NeuralEnsemble/MotionClouds/master)
 [![PyPI version](https://badge.fury.io/py/MotionClouds.svg)](https://badge.fury.io/py/MotionClouds)
 [![Research software impact](http://depsy.org/api/package/pypi/MotionClouds/badge.svg)](http://depsy.org/package/python/MotionClouds)
@@ -19,36 +17,39 @@ In particular, these stimuli can be made closer to naturalistic textures compare
 <center><img src="docs/grating.gif?raw=true" width="50%"></center>
 
 * to install the package, run:
+
 ```bash
 pip3 install MotionClouds
 ```
 
 * to install the dependencies:
+
 ```
 pip3 install -r requirements.txt
 ```
 
 * optionnally, to install the latest version:
+
 ```bash
 pip3 install --user git+https://github.com/NeuralEnsemble/MotionClouds.git
 ```
 
 * test your installation using for instance:
+
 ```bash
 python3 -c 'import MotionClouds as mc; fx, fy, ft = mc.get_grids(mc.N_X, mc.N_Y, mc.N_frame); z = mc.envelope_gabor(fx, fy, ft); mc.figures(z, "test", figpath="/tmp")'
 ```
 
 * for more documentation, visit the MotionClouds website:
-https://neuralensemble.github.io/MotionClouds/
-
+<https://neuralensemble.github.io/MotionClouds/>
 
 The description of this method was published in:
 
 * Paula S. Leon, Ivo Vanzetta, Guillaume S. Masson, Laurent U. Perrinet. _Motion Clouds: Model-based stimulus synthesis of natural-like random textures for the study of motion perception._ [**Journal of Neurophysiology**](http://jn.physiology.org/content/early/2012/03/10/jn.00737.2011), 107(11):3217--3226, 2012  [URL](https://laurentperrinet.github.io/publication/sanz-12/) - [reprint](https://neuralensemble.github.io/MotionClouds/ms/MotionClouds.pdf) - [Supplementary Information](https://neuralensemble.github.io/MotionClouds/ms/MotionClouds_Supplementary.pdf) - [Supplementary Videos](https://neuralensemble.github.io/MotionClouds/ms/MotionClouds_VideoFigures.pdf)
 
-* Jonathan Vacher, Andrew Isaac Meso, Laurent U Perrinet, Gabriel Peyré (2015). [Biologically Inspired Dynamic Textures for Probing Motion Perception.](https://laurentperrinet.github.io/publication/vacher-15-nips/) Advances in Neural Information Processing Systems (NeurIPS * 2015). 
+* Jonathan Vacher, Andrew Isaac Meso, Laurent U Perrinet, Gabriel Peyré (2015). [Biologically Inspired Dynamic Textures for Probing Motion Perception.](https://laurentperrinet.github.io/publication/vacher-15-nips/) Advances in Neural Information Processing Systems (NeurIPS * 2015).
 
-* Jonathan Vacher, Andrew Isaac Meso, Laurent U Perrinet, Gabriel Peyré (2018). [Bayesian Modeling of Motion Perception using Dynamical Stochastic Textures.](https://laurentperrinet.github.io/publication/vacher-16/) Neural Computation. 
+* Jonathan Vacher, Andrew Isaac Meso, Laurent U Perrinet, Gabriel Peyré (2018). [Bayesian Modeling of Motion Perception using Dynamical Stochastic Textures.](https://laurentperrinet.github.io/publication/vacher-16/) Neural Computation.
 
 While this method was used in the following paper:
 
@@ -60,6 +61,7 @@ This work was supported by the European Union project Number FP7-269921, ``Brain
 <img src="https://brainscales.kip.uni-heidelberg.de/images/thumb/5/5b/Public--EU-Logo.gif/90px-Public--EU-Logo.gif" width="20%">
 
 ***
+
 ## Code example - [demo](https://neuralensemble.github.io/MotionClouds/posts/testing_components.html)
 
 Motion Clouds are built using a collection of scripts that provides a simple way of generating complex stimuli suitable for neuroscience and psychophysics experiments. It is meant to be an open-source package that can be combined with other packages such as PsychoPy or NeuroTools.
@@ -67,6 +69,7 @@ Motion Clouds are built using a collection of scripts that provides a simple way
 All functions are implemented in one main script called `MotionClouds.py` that handles the Fourier cube, the envelope functions as well as the random phase generation and all Fourier related processing. Additionally, all the auxiliary visualization tools to plot the spectra and the movies are included. Specific scripts such as `test_color.py`, `test_speed.py`, `test_radial.py` and `test_orientation.py` explore the role of different parameters for each individual envelope (respectively color, speed, radial frequency, orientation). Our aim is to keep the code as simple as possible in order to be comprehensible and flexible. To sum up, when we build a custom  Motion Cloud there are 3 simple steps to follow:
 
 1. set the MC parameters and construct the Fourier envelope, then visualize it as iso-surfaces:
+
 ```python
 import MotionClouds as mc
 import numpy as np
@@ -81,7 +84,8 @@ envelope = mc.envelope_gabor(fx, fy, ft,
 mc.visualize(envelope)
 ```
 
-2. perform the IFFT and contrast normalization; visualize the stimulus as a 'cube' visualization of the image sequence,
+1. perform the IFFT and contrast normalization; visualize the stimulus as a 'cube' visualization of the image sequence,
+
 ```python
 movie = mc.random_cloud(envelope)
 movie = mc.rectif(movie)
@@ -89,7 +93,7 @@ movie = mc.rectif(movie)
 mc.cube(movie, name=name + '_cube')
 ```
 
-3. export the stimulus as a movie (.mp4 format available), as separate frames (.bmp and .png formats available) in a compressed zipped folder, or as a Matlab matrix (.mat format).
+1. export the stimulus as a movie (.mp4 format available), as separate frames (.bmp and .png formats available) in a compressed zipped folder, or as a Matlab matrix (.mat format).
 
 ```python
 mc.anim_save(movie, name, display=False, vext='.mp4')
@@ -103,11 +107,12 @@ for sf_0 in [0.01, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6]:
     # function performing plots for a given set of parameters
     mc.figures_MC(fx, fy, ft, name_, sf_0=sf_0)
 ```
+
 ***
 
 ## 👥 Authors & Contributors
 
-- 👨‍🏫 [Prof. Hugo de Paula](https://github.com/hugodepaula) (Universidade Federal de Minas Gerais / LAPAN)
-- 👨‍🏫 [Laurent Perrinet](https://github.com/laurentperrinet) (CNRS / Aix-Marseille University)
-- 👨‍🏫 [Matthias Hennig](https://github.com/mhennig) (University of Edinburgh)
-- 👨‍🏫 [J. Spezia](https://github.com/jspezia)
+* 👨‍🏫 [Prof. Hugo de Paula](https://github.com/hugodepaula) (Universidade Federal de Minas Gerais / LAPAN)
+* 👨‍🏫 [Laurent Perrinet](https://github.com/laurentperrinet) (CNRS / Aix-Marseille University)
+* 👨‍🏫 [Matthias Hennig](https://github.com/mhennig) (University of Edinburgh)
+* 👨‍🏫 [J. Spezia](https://github.com/jspezia)

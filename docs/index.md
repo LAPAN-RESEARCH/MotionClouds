@@ -36,6 +36,7 @@ This work was supported by the European Union project Number FP7-269921, ``Brain
 <img src="https://brainscales.kip.uni-heidelberg.de/images/thumb/5/5b/Public--EU-Logo.gif/90px-Public--EU-Logo.gif" width="10%">
 
 ***
+
 ## Code example - [demo](https://neuralensemble.github.io/MotionClouds/posts/testing_components.html)
 
 Motion Clouds are built using a collection of scripts that provides a simple way of generating complex stimuli suitable for neuroscience and psychophysics experiments. It is meant to be an open-source package that can be combined with other packages such as PsychoPy or NeuroTools.
@@ -58,7 +59,7 @@ envelope = mc.envelope_gabor(fx, fy, ft,
 mc.visualize(envelope)
 ```
 
-2. perform the IFFT and contrast normalization; visualize the stimulus as a 'cube' visualization of the image sequence,
+1. perform the IFFT and contrast normalization; visualize the stimulus as a 'cube' visualization of the image sequence,
 
 ```python
 movie = mc.random_cloud(envelope)
@@ -67,7 +68,7 @@ movie = mc.rectif(movie)
 mc.cube(movie, name=name + '_cube')
 ```
 
-3. export the stimulus as a movie (.mpeg format available), as separate frames (.bmp and .png formats available) in a compressed zipped folder, or as a Matlab matrix (.mat format).
+1. export the stimulus as a movie (.mpeg format available), as separate frames (.bmp and .png formats available) in a compressed zipped folder, or as a Matlab matrix (.mat format).
 
 ```python
 mc.anim_save(movie, name, display=False, vext='.mpeg')
@@ -81,4 +82,5 @@ for sf_0 in [0.01, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6]:
     # function performing plots for a given set of parameters
     mc.figures_MC(fx, fy, ft, name_, sf_0=sf_0)
 ```
+
 ***
